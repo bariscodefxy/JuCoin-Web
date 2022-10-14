@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JuCoin Web - User page{% endblock %}
+
+{% block body %}
+    Welcome to JuCoin Web!<br><br>
+
+
+    Your ID is: {{ user.steamid }}<br>
+    Coins: {{ user.coins }}<br>
+    <a href="{{ path('app_logout') }}">Logout</a>
+{% endblock %}
