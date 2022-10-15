@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\User;
@@ -56,6 +57,7 @@ class UserController extends AbstractController
 
         $form = $this->createFormBuilder($user)
             ->add('token', TextType::class)
+            ->add('login', SubmitType::class)
             ->getForm();
 
         $form->handleRequest($request);
@@ -67,8 +69,8 @@ class UserController extends AbstractController
             return $this->redirectToRoute( 'app_user' );
         }
 
-        return $this->renderForm( 'user/login.html.twig', [
-            'form' => $form
+        return $this->render( 'user/login.html.twig', [
+            'form' => $form->createView()
         ] );
     }
 

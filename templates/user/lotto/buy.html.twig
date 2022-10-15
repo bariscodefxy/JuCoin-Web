@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{% if error %}
+		{{ error }}
+	{% else %}
+		You got {{ reward }} JuCoin(s)!
+	{% endif %}
+	<br><br>
+	<a href="{{ path('app_lotto') }}"><< Back</a>
+{% endblock %}

@@ -6,7 +6,7 @@
     Welcome to JuCoin Web!<br><br>
 
 
-    Your ID is: {{ user.steamid }}<br>
-    Coins: {{ user.coins }}<br>
-    <a href="{{ path('app_logout') }}">Logout</a>
+    Your ID is <span class="fw-bold">{{ user.steamid }}</span><br>
+    <span class="fw-bold">JuCoins:</span> {{ user.coins }}<br>
+    <a href="{{ path('app_lotto') }}">Lotto</a> <a href="{{ path('app_logout') }}">Logout</a>
 {% endblock %}

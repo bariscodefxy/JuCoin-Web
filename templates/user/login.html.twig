@@ -1,1 +1,8 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %}JuCoin Web - Login page{% endblock %}
+
+{% block body %}
+	{{ form(form) }}
+	<a href="{{ path('index') }}"><button><< Back</button></a>
+{% endblock %}

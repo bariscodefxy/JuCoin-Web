@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JuCoin - Lotto System{% endblock %}
+
+{% block body %}
+	<h1>Lotto System</h1>
+	<p>You have {{ user.coins }} JuCoin(s).</p>
+	<div class="lottos d-flex justify-content-around" style="width: 100vw; flex-wrap: wrap;">
+		{% for l in lottos %}
+		<div class="card" style="width: 250px; height: 350px">
+			<div class="card-body position-relative">
+				<h2>Lotto {{ l.id }}</h2>
+				<span><span class="fw-bold">Price</span>: <span class="text-{% if user.coins < l.price %}danger{% else %}success{% endif %}">{{ l.price }} JuCoin</span></span><br><br>
+				<span><span class="fw-bold">Rewards;</span> <span class="text-success">
+					{% for r in l.rewards %}
+						{{ r }},
+					{% endfor %}
+				</span></span><br><br>
+				<a class="btn btn-primary position-absolute" style="left: 8%; width: 85%; bottom: 20px;" href="{{ path('app_lottobuy', {id: l.id}) }}">Buy</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div><br><br>
+	<a href="{{ path('app_user') }}"><< Back</a>
+{% endblock %}
